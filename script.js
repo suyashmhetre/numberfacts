@@ -9,7 +9,7 @@ let search = document.getElementsByClassName("button")[0];
 async function fetchapi() {
   try {
     let number = input.value;
-    const response = await fetch(`http://numbersapi.com/${number}/trivia`);
+    const response = await fetch(`https://numbersapi.com/${number}/trivia`);
     const data = await response.text();
     fact.textContent=data;
     heading.textContent= number;
