@@ -9,7 +9,7 @@ let search = document.getElementsByClassName("button")[0];
 async function fetchapi() {
   try {
     let number = input.value;
-    const response = await fetch(`https://numbersapi.com/1/trivia`);
+    const response = await fetch(`http://numbersapi.com/1/trivia`);
     const data = await response.text();
     fact.textContent=data;
     heading.textContent= number;
@@ -17,5 +17,6 @@ async function fetchapi() {
     console.error('Error fetching data:', error);
   }
 }
+console.log("hgh")
 
 
