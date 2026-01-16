@@ -1,5 +1,39 @@
 *{
+  box-sizing: border-box;
+}
+  body{
     background-color: burlywood;
+    
+}
+img {
+   
+   /*max-width: 100%;
+   height: auto;*/
+   height: 500px;
+   position: absolute;
+   bottom: 20%;
+   left: -110%;
+  
+
+  animation: rotate linear 10s infinite;
+}
+
+
+    @keyframes rotate{
+        0%{
+            transform: rotate(0deg);
+        }
+        50%{
+            transform: rotate(180deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+.noto-sans-modi-regular {
+  font-family: "Noto Sans Modi", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .brutalist-container {
@@ -7,7 +41,7 @@
   width: 250px;
   font-family: monospace;
   margin-top: 40%;
-  margin-left: 10%;
+  margin-left: 8%;
 
 }
 
@@ -26,6 +60,31 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 5px 5px 0 #000, 10px 10px 0 #4a90e2;
 }
+.button2{
+  position:sticky;
+  top: 10px;
+  padding: 4px;
+  margin-left: 88%;
+  margin-top: 8px;
+  border-radius:40px;
+  background-color: #7d2ae8;
+  color: #fff;
+  border-color: transparent;
+  
+  
+}
+#outputText {
+  font-family: "Noto Sans Modi", sans-serif;
+  font-size: 32px;
+  background-color: transparent;
+  position:absolute;
+  
+}
+
+
+
+
+
 
 @keyframes glitch {
   0% {
@@ -196,7 +255,7 @@
   cursor: pointer;
   background-color: #7d2ae8;
   transition: all 0.2s ease;
-  margin-top: 20%;
+  margin-top: 24%;
   margin-left: 30%;
   font-size: 20px;
 }
@@ -288,8 +347,12 @@
 
 .card {
   box-sizing: border-box;
-  width:320px;
-  height: 254px;
+  overflow: scroll;
+  overflow-y: auto;   /* vertical only */
+  overflow-x: hidden;
+
+  width: 320px; 
+  height: 280px;            
   background: rgba(217, 217, 217, 0.58);
   border: 1px solid white;
   box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
@@ -300,10 +363,45 @@
   user-select: none;
   font-weight: bolder;
   color: black;
-  margin-left: -8%;
+ transform: translateX(-7%);
   margin-top: 30%;
+ 
+  
+
+}
+/* ===== Custom Scrollbar for Card ===== */
+.card.card::-webkit-scrollbar {
+  width: 10px;
+  
+  
   
 }
+
+.card::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+   margin: 8px 0; 
+}
+
+.card::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #7d2ae8,
+    #4a90e2
+  );
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.card::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #4a90e2,
+    #7d2ae8
+  );
+}
+
+
 
 .card:hover {
   border: 1px solid black;
@@ -316,7 +414,8 @@
 h2{
     background-color: transparent ;
     margin-left: 8%;
-    text-decoration: underline;
+    
+    position: absolute;
 }
 p{
     background-color: transparent;
