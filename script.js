@@ -122,11 +122,6 @@ function ModiToDev() {
 function DevtoModi() {
    /*isDevToModi = true;*/
   let input = document.getElementById("inputText").value.trim();
- 
-  // If English letters exist → convert to Devanagari first
-  if (/[a-zA-Z]/.test(input)) {
-    input = englishToDevanagari(input);
-  }
   const output = devanagariToModi(input);
   document.getElementById("outputText").innerHTML = output;
 }
@@ -142,3 +137,4 @@ function copyText() {
   navigator.clipboard.writeText(text);
 
 }
+
