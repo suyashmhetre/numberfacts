@@ -59,7 +59,7 @@ img {
   box-shadow: 5px 5px 0 #000, 10px 10px 0 #4a90e2;
 }
 .button2{
-  position:sticky;
+  position:fixed;
   top: 10px;
   padding: 4px;
   margin-left: 88%;
@@ -348,7 +348,7 @@ img {
   overflow: scroll;
   overflow-y: auto;   /* vertical only */
   overflow-x: hidden;
-
+  position: relative;
   width: 320px; 
   height: 280px;            
   background: rgba(217, 217, 217, 0.58);
@@ -522,5 +522,6 @@ p{
     display: none;
   }
 }
+
 
 
