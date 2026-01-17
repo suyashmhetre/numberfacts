@@ -1,13 +1,13 @@
-
-let convert = document.getElementById("convertbtn");
-convert.addEventListener("click",()=>{
-   if(modiToDevbtn == true){
-    ModiToDev();
-   }
-   else{
+let isDevToModi = true;
+document.getElementById("convertbtn").addEventListener("click", () => {
+  if (isDevToModi) {
     DevtoModi();
-   }
-})
+  } else {
+    ModiToDev();
+  }
+});
+
+
 /* ===============================
    DEVANAGARI → MODI (Unicode 17)
 ================================= */
@@ -76,29 +76,51 @@ function modiToDevanagari(text) {
   }
   return out;
 }
-let modiToDevbtn = false;
-function switchbtn() {
-  modiToDevbtn = true;
+
+/*function switchbtn() {
   document.getElementById("label").innerText = "Convert Modi to Marathi";
-}
-function ModiToDev(){
-    const outputEl = document.getElementById("outputText");
-  const normalized = decodeHTML(outputEl.innerHTML);
+ document.getElementById("header").innerText="Devnagri Output";
+}*/
 
-  const output = modiToDevanagari(normalized);
+let SwitchBtn = document.getElementById("Switch");
+function switchbtn() {
+  isDevToModi = !isDevToModi; // 🔁 toggle direction
 
-  outputEl.innerText = output;
+  if (isDevToModi) {
+    document.getElementById("label").innerText =
+      "Convert Devanagari to Modi";
+    document.getElementById("header").innerText =
+      "Modi Output";
+  } else {
+    document.getElementById("label").innerText =
+      "Convert Modi to Devanagari";
+    document.getElementById("header").innerText =
+      "Devanagari Output";
+  }
+  document.querySelector(".switch").classList.toggle("active");
 }
-function decodeHTML(str) {
+
+function ModiToDev() {
+  let input = document.getElementById("inputText").value.trim();
+  input = decodeHTML(input);
+
+  const output = modiToDevanagari(input);
+  document.getElementById("outputText").innerText = output;
+}
+
+  function decodeHTML(str) {
   const el = document.createElement("textarea");
   el.innerHTML = str;
   return el.value;
 }
 
+
+
 /* ===============================
    MAIN CONVERT FUNCTION
 ================================= */
 function DevtoModi() {
+   /*isDevToModi = true;*/
   let input = document.getElementById("inputText").value.trim();
  
   // If English letters exist → convert to Devanagari first
