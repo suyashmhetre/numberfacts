@@ -85,8 +85,10 @@ function modiToDevanagari(text) {
 let SwitchBtn = document.getElementById("Switch");
 function switchbtn() {
   isDevToModi = !isDevToModi; // 🔁 toggle direction
-
+document.getElementById("outputText").innerText = "";
+document.getElementById("inputText").value = "";
   if (isDevToModi) {
+
     document.getElementById("label").innerText =
       "Convert Devanagari to Modi";
     document.getElementById("header").innerText =
