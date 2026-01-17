@@ -441,7 +441,7 @@ p{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /*background-color: burlywood;*/
+    background-color: burlywood;
      
      
   }
@@ -449,7 +449,7 @@ p{
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("/image.png");
+  background-image: url("./image.png");
   background-size:contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -522,4 +522,5 @@ p{
     display: none;
   }
 }
+
 
