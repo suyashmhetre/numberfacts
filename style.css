@@ -30,7 +30,7 @@ img {
     }
 .noto-sans-modi-regular {
   font-family: "Noto Sans Modi", sans-serif;
-  font-weight: 350;
+  font-weight: 280;
   font-style: normal;
 }
 
@@ -73,7 +73,7 @@ img {
 }
 #outputText {
   font-family: "Noto Sans Modi", sans-serif;
-  font-size: 32px;
+  font-size: 25px;
   background-color: transparent;
   position:absolute;
   
