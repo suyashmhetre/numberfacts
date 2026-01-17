@@ -13,8 +13,6 @@ img {
    position: absolute;
    bottom: 20%;
    left: -110%;
-  
-
   animation: rotate linear 10s infinite;
 }
 
@@ -363,7 +361,7 @@ img {
   user-select: none;
   font-weight: bolder;
   color: black;
- transform: translateX(-7%);
+  margin-left: -10px;
   margin-top: 30%;
  
   
@@ -409,12 +407,16 @@ img {
 }
 
 .card:active {
-  transform: scale(0.95) rotateZ(1.7deg);
+  transform: scale(0.95) rotateZ(1.7deg) 
+}
+.switch{
+  background-color: #7d2ae8;
+  border-radius: 50%;
+
 }
 h2{
     background-color: transparent ;
     margin-left: 8%;
-    
     position: absolute;
 }
 p{

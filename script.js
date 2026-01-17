@@ -1,5 +1,13 @@
 
-
+let convert = document.getElementById("convertbtn");
+convert.addEventListener("click",()=>{
+   if(modiToDevbtn == true){
+    ModiToDev();
+   }
+   else{
+    DevtoModi();
+   }
+})
 /* ===============================
    DEVANAGARI → MODI (Unicode 17)
 ================================= */
@@ -24,6 +32,36 @@ const devToModi = {
   "ं":"&#x1163D;","ः":"&#x1163E;","्":"&#x1163F;"
 };
 
+
+const modiToDev = {
+  "𑘀":"अ","𑘁":"आ","𑘂":"इ","𑘃":"ई",
+  "𑘄":"उ","𑘅":"ऊ","𑘆":"ऋ",
+
+  "𑘊":"ए","𑘋":"ऐ","𑘌":"ओ","𑘍":"औ",
+
+  "𑘎":"क","𑘏":"ख","𑘐":"ग","𑘑":"घ",
+  "𑘓":"च","𑘔":"छ","𑘕":"ज","𑘖":"झ",
+
+  "𑘘":"ट","𑘙":"ठ","𑘚":"ड","𑘛":"ढ",
+
+  "𑘝":"त","𑘞":"थ","𑘟":"द","𑘠":"ध",
+
+  "𑘡":"न","𑘢":"प","𑘣":"फ","𑘤":"ब",
+  "𑘥":"भ","𑘦":"म",
+
+  "𑘧":"य","𑘨":"र","𑘩":"ल","𑘪":"व",
+
+  "𑘫":"श","𑘬":"ष","𑘭":"स","𑘮":"ह","𑘯":"ळ",
+
+  "𑘰":"ा","𑘱":"ि","𑘲":"ी",
+  "𑘳":"ु","𑘴":"ू",
+  "𑘹":"े","𑘺":"ै",
+  "𑘻":"ो","𑘼":"ौ",
+
+  "𑘽":"ं","𑘾":"ः","𑘿":"्"
+};
+
+
 function devanagariToModi(text) {
   let out = "";
   for (let ch of text) {
@@ -31,21 +69,48 @@ function devanagariToModi(text) {
   }
   return out;
 }
+function modiToDevanagari(text) {
+  let out = "";
+  for (let ch of text) {
+    out += modiToDev[ch] || ch;
+  }
+  return out;
+}
+let modiToDevbtn = false;
+function switchbtn() {
+  modiToDevbtn = true;
+  document.getElementById("label").innerText = "Convert Modi to Marathi";
+}
+function ModiToDev(){
+    const outputEl = document.getElementById("outputText");
+  const normalized = decodeHTML(outputEl.innerHTML);
+
+  const output = modiToDevanagari(normalized);
+
+  outputEl.innerText = output;
+}
+function decodeHTML(str) {
+  const el = document.createElement("textarea");
+  el.innerHTML = str;
+  return el.value;
+}
 
 /* ===============================
    MAIN CONVERT FUNCTION
 ================================= */
-function fetchapi() {
+function DevtoModi() {
   let input = document.getElementById("inputText").value.trim();
-
+ 
   // If English letters exist → convert to Devanagari first
   if (/[a-zA-Z]/.test(input)) {
     input = englishToDevanagari(input);
   }
-
   const output = devanagariToModi(input);
   document.getElementById("outputText").innerHTML = output;
 }
+
+
+
 
 /* ===============================
    COPY TO CLIPBOARD
